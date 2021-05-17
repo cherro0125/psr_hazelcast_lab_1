@@ -77,6 +77,9 @@ public class HazelcastServer {
 
             @Override
             public void entryAdded(EntryEvent<Long, Book> e) {
+                Book entry = e.getValue();
+                entry.setId(e.getKey());
+                books.put(e.getKey(),entry);
                 System.out.println(e);
             }
         }, true);

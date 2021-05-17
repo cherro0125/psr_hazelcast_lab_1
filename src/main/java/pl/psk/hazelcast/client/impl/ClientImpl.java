@@ -62,6 +62,11 @@ public class ClientImpl implements Client {
     }
 
     @Override
+    public void deleteAllBooks() {
+        getMap().clear();
+    }
+
+    @Override
     public void modifyBook(Long id, Book book) {
         getMap().put(id, book);
     }

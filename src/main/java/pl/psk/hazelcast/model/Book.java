@@ -3,8 +3,10 @@ package pl.psk.hazelcast.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.psk.hazelcast.console.util.ConsoleUtils;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book implements Serializable {
-
+    private Long id;
     private String name;
     private Date createdAt;
     private List<Category> category;
@@ -42,5 +44,12 @@ public class Book implements Serializable {
         }
 
         return sb.toString();
+    }
+
+    public static Book getFromConsole(Author author){
+        System.out.println("Book Name:");
+        String name = ConsoleUtils.readConsoleString();
+        Book book = new Book(0L,name, new Date(), Arrays.asList(Category.MANGA, Category.ADVENTURE, Category.DRAMAT), author);
+        return book;
     }
 }

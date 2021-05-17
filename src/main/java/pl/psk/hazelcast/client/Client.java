@@ -12,5 +12,6 @@ public interface Client {
     Book getBook(Long id);
     void insertBook(Book book);
     void deleteBook(Long id);
+    void deleteAllBooks();
     void modifyBook(Long id, Book book);
 }
